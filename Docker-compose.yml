@@ -1,0 +1,15 @@
+version: "3.3"
+
+services:
+  db:
+    image: postgres:10
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: odoo
+      POSTGRES_USER: odoo
+  odoo:
+    image: odoo
+    links: 
+      - db:db
+    ports:
+      - "8069:8069"
